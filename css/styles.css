@@ -1,0 +1,362 @@
+:root {
+  --charcoal: #212529;
+  --paper: #f5f6f7;
+  --white: #ffffff;
+  --muted: #495057;
+  --tertiary: #868e96;
+  --accent: #c4a35a;
+  --surface: #e9ecef;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --shadow: 0 24px 48px rgba(33, 37, 41, 0.12);
+  --font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--charcoal);
+  background: var(--paper);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background: rgba(245, 246, 247, 0.88);
+  border-bottom: 1px solid rgba(33, 37, 41, 0.06);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+}
+
+.brand__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(33, 37, 41, 0.18);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-nav a {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  background: var(--white);
+  color: var(--charcoal);
+}
+
+.hero {
+  padding: 72px 0 88px;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0 0 18px;
+  font-size: clamp(2.4rem, 5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.hero__lead {
+  margin: 0 0 28px;
+  max-width: 34rem;
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button--primary {
+  background: var(--charcoal);
+  color: var(--white);
+  box-shadow: 0 12px 28px rgba(33, 37, 41, 0.22);
+}
+
+.button--secondary {
+  background: var(--white);
+  color: var(--charcoal);
+  box-shadow: 0 8px 20px rgba(33, 37, 41, 0.08);
+}
+
+.hero__showcase {
+  margin: 0;
+}
+
+.hero__device {
+  padding: 10px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #2b3035 0%, #212529 100%);
+  box-shadow:
+    0 32px 64px rgba(33, 37, 41, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.hero__screenshot {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hero__caption {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--tertiary);
+}
+
+.features {
+  padding: 24px 0 88px;
+}
+
+.section-title {
+  margin: 0 0 12px;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  letter-spacing: -0.03em;
+}
+
+.section-lead {
+  margin: 0 0 32px;
+  max-width: 40rem;
+  color: var(--muted);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.feature-card {
+  padding: 24px;
+  border-radius: var(--radius-md);
+  background: var(--white);
+  box-shadow: 0 10px 24px rgba(33, 37, 41, 0.06);
+}
+
+.feature-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.0625rem;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.cta {
+  padding: 0 0 88px;
+}
+
+.cta__panel {
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  background: var(--charcoal);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cta__panel h2 {
+  margin: 0 0 8px;
+  font-size: 1.75rem;
+  letter-spacing: -0.03em;
+}
+
+.cta__panel p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.site-footer {
+  padding: 28px 0 40px;
+  border-top: 1px solid rgba(33, 37, 41, 0.08);
+  color: var(--tertiary);
+  font-size: 0.875rem;
+}
+
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.site-footer nav {
+  display: flex;
+  gap: 18px;
+}
+
+.site-footer a:hover {
+  color: var(--charcoal);
+}
+
+.policy-page {
+  padding: 48px 0 88px;
+}
+
+.policy-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.policy-card h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  letter-spacing: -0.03em;
+}
+
+.policy-meta {
+  margin: 0 0 28px;
+  color: var(--tertiary);
+  font-size: 0.875rem;
+}
+
+.policy-card h2 {
+  margin: 28px 0 10px;
+  font-size: 1.125rem;
+}
+
+.policy-card p,
+.policy-card li {
+  color: var(--muted);
+}
+
+.policy-card ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .hero__grid,
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 48px;
+  }
+
+  .hero__showcase {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-nav a:not([aria-current="page"]) {
+    display: none;
+  }
+
+  .policy-card {
+    padding: 28px 22px;
+  }
+
+  .cta__panel {
+    padding: 28px;
+  }
+}
